@@ -8,6 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto">
+            <Button x:Name="guestsListButton" Content="Button" Click="guestsListButton_Click" />
+
+        </StackPanel>
 
     </Grid>
 </Page>

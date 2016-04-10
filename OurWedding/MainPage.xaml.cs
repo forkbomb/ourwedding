@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OurWedding.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace OurWedding
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void guestsListButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.GuestsList.List));
         }
     }
 }
