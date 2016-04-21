@@ -18,8 +18,12 @@
         <ListView x:Name="guestsListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Tapped="StackPanel_Tapped">
                         <TextBlock Text="{Binding Name}" FontWeight="Black"/>
+                        <TextBlock Text="A:"/>
+                        <TextBlock Text="{Binding Adults}" FontWeight="Black"/>
+                        <TextBlock Text="C:"/>
+                        <TextBlock Text="{Binding Children}" FontWeight="Black"/>                        
                         <ToggleSwitch Name="confirmGuestSwitch" IsOn="{Binding Confirmed}" Toggled="confirmGuestSwitch_Toggled" OnContent="" OffContent="" />
                     </StackPanel>
                 </DataTemplate>

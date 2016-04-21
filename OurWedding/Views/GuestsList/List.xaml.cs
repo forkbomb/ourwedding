@@ -53,5 +53,13 @@ namespace OurWedding.Views.GuestsList
                 db.Update(guest);
             }
         }
+
+        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            StackPanel stackPanel = sender as StackPanel;
+            Guest guest = stackPanel.DataContext as Guest;
+            int id = guest.Id;
+            this.Frame.Navigate(typeof(Edit), id);
+        }
     }
 }

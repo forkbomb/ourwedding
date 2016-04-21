@@ -21,11 +21,38 @@ namespace OurWedding.Views.GuestsList
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class New : Page
+    public sealed partial class Edit : Page
     {
-        public New()
+        Guest guest;
+        public Edit()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is int)
+            {
+                using (var db = DbConnection.GetConnection)
+                {
+                    int guestId = (e.Parameter as int?).Value;
+                    guest = (from g in db.Table<Guest>() where g.Id == guestId select g).FirstOrDefault();
+                    FillFields();
+                }
+            }
+            // TODO else flash error and go back
+            base.OnNavigatedTo(e);
+        }
+
+        private void FillFields()
+        {
+            if (guest != null)
+            {
+                nameTextBox.Text = guest.Name;
+                adultsTextBox.Text = guest.Adults.ToString();
+                childrenTextBox.Text = guest.Children.ToString();
+                commentTextBox.Text = guest.Comment ?? "";
+            }
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
@@ -34,16 +61,16 @@ namespace OurWedding.Views.GuestsList
             int adults = Int32.Parse(adultsTextBox.Text);
             int children = Int32.Parse(childrenTextBox.Text);
             string comment = commentTextBox.Text;
-            Guest guest = new Guest();
             guest.Name = name;
             guest.Adults = adults;
             guest.Children = children;
             guest.Comment = comment;
             using (var db = DbConnection.GetConnection)
             {
-                db.Insert(guest);
+                db.Update(guest);
             }
             this.Frame.Navigate(typeof(List));
         }
+
     }
 }
