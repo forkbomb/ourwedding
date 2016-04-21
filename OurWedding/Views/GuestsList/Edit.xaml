@@ -11,25 +11,25 @@
             <!--<CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>-->
-            <AppBarButton Icon="Save" Label="appbarbutton" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Save" x:Uid="save" Click="AppBarButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <TextBlock TextWrapping="Wrap" Text="Name"/>
+                <TextBlock TextWrapping="Wrap" x:Uid="guestName"/>
                 <TextBox x:Name="nameTextBox" TextWrapping="Wrap"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock TextWrapping="Wrap" Text="Adults"/>
+                <TextBlock TextWrapping="Wrap" x:Uid="adults"/>
                 <TextBox x:Name="adultsTextBox" TextWrapping="Wrap"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock TextWrapping="Wrap" Text="Children"/>
+                <TextBlock TextWrapping="Wrap" x:Uid="children"/>
                 <TextBox x:Name="childrenTextBox" TextWrapping="Wrap"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock TextWrapping="Wrap" Text="Comment"/>
+                <TextBlock TextWrapping="Wrap" x:Uid="comment"/>
                 <TextBox x:Name="commentTextBox" TextWrapping="Wrap"/>
             </StackPanel>
         </StackPanel>

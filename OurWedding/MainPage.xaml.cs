@@ -27,8 +27,8 @@ namespace OurWedding
         {
             this.InitializeComponent();
         }
-
-        private void guestsListButton_Click(object sender, RoutedEventArgs e)
+        
+        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Views.GuestsList.List));
         }

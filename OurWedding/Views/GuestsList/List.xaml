@@ -11,7 +11,7 @@
             <!--<CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>-->
-            <AppBarButton Icon="Add" Label="Add" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Add"  x:Uid="addGuest" Click="AppBarButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -20,9 +20,9 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Tapped="StackPanel_Tapped">
                         <TextBlock Text="{Binding Name}" FontWeight="Black"/>
-                        <TextBlock Text="A:"/>
+                        <TextBlock x:Uid="adults"/>
                         <TextBlock Text="{Binding Adults}" FontWeight="Black"/>
-                        <TextBlock Text="C:"/>
+                        <TextBlock x:Uid="children"/>
                         <TextBlock Text="{Binding Children}" FontWeight="Black"/>                        
                         <ToggleSwitch Name="confirmGuestSwitch" IsOn="{Binding Confirmed}" Toggled="confirmGuestSwitch_Toggled" OnContent="" OffContent="" />
                     </StackPanel>
