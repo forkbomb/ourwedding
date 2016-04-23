@@ -120,6 +120,9 @@
   <data name="addGuest.Label" xml:space="preserve">
     <value>Dodaj</value>
   </data>
+  <data name="addTask.Label" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
   <data name="adults.Text" xml:space="preserve">
     <value>Dorosłych:</value>
   </data>
@@ -137,5 +140,11 @@
   </data>
   <data name="save.Label" xml:space="preserve">
     <value>Zapisz</value>
+  </data>
+  <data name="taskName.Text" xml:space="preserve">
+    <value>Nazwa zadania</value>
+  </data>
+  <data name="toDoListButton.Text" xml:space="preserve">
+    <value>Do zrobienia</value>
   </data>
 </root>

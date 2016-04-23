@@ -1,4 +1,4 @@
-﻿using OurWedding.Views;
+﻿using OurWedding.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,28 +14,30 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace OurWedding
+namespace OurWedding.Views.ToDoList
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class New : Page
     {
-        public MainPage()
+        public New()
         {
             this.InitializeComponent();
         }
         
-        private void GuestList_Tapped(object sender, TappedRoutedEventArgs e)
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Views.GuestsList.List));
-        }
-
-        private void ToDoList_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Views.ToDoList.List));
+            string name = nameTextBox.Text;
+            ToDoItem item = new ToDoItem();
+            item.Task = name;
+            using (var db = DbConnection.GetConnection)
+            {
+                db.Insert(item);
+            }
+            this.Frame.Navigate(typeof(List));
         }
     }
 }

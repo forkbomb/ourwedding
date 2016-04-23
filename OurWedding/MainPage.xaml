@@ -9,8 +9,16 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListView>
-            <StackPanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto" Tapped="StackPanel_Tapped">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <StackPanel Tapped="GuestList_Tapped">
                 <TextBlock x:Uid="guestsListButton"/>
+            </StackPanel>
+            <StackPanel Tapped="ToDoList_Tapped">
+                <TextBlock x:Uid="toDoListButton"/>
             </StackPanel>
         </ListView>
 

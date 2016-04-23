@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-    <data name="addGuest.Label" xml:space="preserve">
+  <data name="addGuest.Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="addTask.Label" xml:space="preserve">
     <value>Add</value>
   </data>
   <data name="adults.Text" xml:space="preserve">
@@ -137,5 +140,11 @@
   </data>
   <data name="save.Label" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="taskName.Text" xml:space="preserve">
+    <value>Task name</value>
+  </data>
+  <data name="toDoListButton.Text" xml:space="preserve">
+    <value>To-Do</value>
   </data>
 </root>

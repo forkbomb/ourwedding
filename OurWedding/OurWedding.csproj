@@ -105,6 +105,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\ToDoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\GuestsList\Edit.xaml.cs">
       <DependentUpon>Edit.xaml</DependentUpon>
@@ -113,6 +114,12 @@
       <DependentUpon>List.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GuestsList\New.xaml.cs">
+      <DependentUpon>New.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToDoList\List.xaml.cs">
+      <DependentUpon>List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToDoList\New.xaml.cs">
       <DependentUpon>New.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -150,6 +157,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GuestsList\New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToDoList\List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToDoList\New.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

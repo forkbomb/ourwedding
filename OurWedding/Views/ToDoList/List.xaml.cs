@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace OurWedding.Views.GuestsList
+namespace OurWedding.Views.ToDoList
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -27,13 +27,14 @@ namespace OurWedding.Views.GuestsList
         {
             this.InitializeComponent();
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             using (var db = DbConnection.GetConnection)
             {
-                db.CreateTable<Guest>();
-                List<Guest> guests = (from g in db.Table<Guest>() select g).ToList();
-                guestsListView.ItemsSource = guests;
+                db.CreateTable<ToDoItem>();
+                List<ToDoItem> toDoItems = (from i in db.Table<ToDoItem>() select i).ToList();
+                toDoListView.ItemsSource = toDoItems;
             }
         }
 
@@ -42,23 +43,15 @@ namespace OurWedding.Views.GuestsList
             this.Frame.Navigate(typeof(New));
         }
 
-        private void confirmGuestSwitch_Toggled(object sender, RoutedEventArgs e)
+        private void doItemSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            Guest guest = toggleSwitch.DataContext as Guest;
-            guest.Confirmed = toggleSwitch.IsOn;
+            ToDoItem item = toggleSwitch.DataContext as ToDoItem;
+            item.Done = toggleSwitch.IsOn;
             using (var db = DbConnection.GetConnection)
             {
-                db.Update(guest);
+                db.Update(item);
             }
-        }
-
-        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            StackPanel stackPanel = sender as StackPanel;
-            Guest guest = stackPanel.DataContext as Guest;
-            int id = guest.Id;
-            this.Frame.Navigate(typeof(Edit), id);
         }
     }
 }
