@@ -110,11 +110,11 @@
     <Compile Include="Views\GuestsList\Edit.xaml.cs">
       <DependentUpon>Edit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GuestsList\List.xaml.cs">
-      <DependentUpon>List.xaml</DependentUpon>
+    <Compile Include="Views\GuestsList\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GuestsList\New.xaml.cs">
-      <DependentUpon>New.xaml</DependentUpon>
+    <Compile Include="Views\GuestsList\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToDoList\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
@@ -152,11 +152,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GuestsList\List.xaml">
+    <Page Include="Views\GuestsList\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GuestsList\New.xaml">
+    <Page Include="Views\GuestsList\Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

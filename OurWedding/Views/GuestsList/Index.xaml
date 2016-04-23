@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="OurWedding.Views.GuestsList.List"
+    x:Class="OurWedding.Views.GuestsList.Index"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OurWedding.Views.GuestsList"

@@ -30,7 +30,7 @@ namespace OurWedding
         
         private void GuestList_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Views.GuestsList.List));
+            this.Frame.Navigate(typeof(Views.GuestsList.Index));
         }
 
         private void ToDoList_Tapped(object sender, TappedRoutedEventArgs e)

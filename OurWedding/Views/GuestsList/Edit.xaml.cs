@@ -69,7 +69,7 @@ namespace OurWedding.Views.GuestsList
             {
                 db.Update(guest);
             }
-            this.Frame.Navigate(typeof(List));
+            this.Frame.Navigate(typeof(Index));
         }
 
     }
