@@ -21,9 +21,9 @@ namespace OurWedding.Views.ToDoList
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class List : Page
+    public sealed partial class Index : Page
     {
-        public List()
+        public Index()
         {
             this.InitializeComponent();
         }
@@ -40,7 +40,7 @@ namespace OurWedding.Views.ToDoList
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(New));
+            this.Frame.Navigate(typeof(Add));
         }
 
         private void doItemSwitch_Toggled(object sender, RoutedEventArgs e)

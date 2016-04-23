@@ -35,7 +35,7 @@ namespace OurWedding
 
         private void ToDoList_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Views.ToDoList.List));
+            this.Frame.Navigate(typeof(Views.ToDoList.Index));
         }
     }
 }

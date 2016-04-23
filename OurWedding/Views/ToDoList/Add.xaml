@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="OurWedding.Views.ToDoList.List"
+    x:Class="OurWedding.Views.ToDoList.Add"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OurWedding.Views.ToDoList"
@@ -11,19 +11,15 @@
             <!--<CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>-->
-            <AppBarButton Icon="Add" x:Uid="addTask" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Save" x:Uid="save" Click="AppBarButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="toDoListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Task}" FontWeight="Black"/>
-                        <ToggleSwitch Name="doItemSwitch" IsOn="{Binding Done}" Toggled="doItemSwitch_Toggled" OnContent="" OffContent="" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" x:Uid="taskName"/>
+                <TextBox x:Name="nameTextBox" TextWrapping="Wrap"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
