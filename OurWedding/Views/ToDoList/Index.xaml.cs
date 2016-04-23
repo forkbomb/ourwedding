@@ -30,6 +30,7 @@ namespace OurWedding.Views.ToDoList
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            prepareBackStack();
             using (var db = DbConnection.GetConnection)
             {
                 db.CreateTable<ToDoItem>();
@@ -52,6 +53,24 @@ namespace OurWedding.Views.ToDoList
             {
                 db.Update(item);
             }
+        }
+
+        private void prepareBackStack()
+        {
+            Frame frame = this.Frame;
+            int stackSize = frame.BackStackDepth;
+            if (stackSize > 1)
+            {
+                PageStackEntry navigatedFrom = frame.BackStack[stackSize - 1];
+                PageStackEntry lastThis = frame.BackStack[stackSize - 2];
+                if (navigatedFrom.SourcePageType == typeof(Add))
+                {
+                    frame.BackStack.Remove(navigatedFrom);
+                    frame.BackStack.Remove(lastThis);
+                }
+
+            }
+
         }
     }
 }

@@ -29,6 +29,7 @@ namespace OurWedding.Views.GuestsList
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            prepareBackStack();
             using (var db = DbConnection.GetConnection)
             {
                 db.CreateTable<Guest>();
@@ -59,6 +60,21 @@ namespace OurWedding.Views.GuestsList
             Guest guest = stackPanel.DataContext as Guest;
             int id = guest.Id;
             this.Frame.Navigate(typeof(Edit), id);
+        }
+        private void prepareBackStack()
+        {
+            Frame frame = this.Frame;
+            int stackSize = frame.BackStackDepth;
+            if (stackSize > 1)
+            {
+                PageStackEntry navigatedFrom = frame.BackStack[stackSize - 1];
+                PageStackEntry lastThis = frame.BackStack[stackSize - 2];
+                if (navigatedFrom.SourcePageType == typeof(Add) || navigatedFrom.SourcePageType == typeof(Edit))
+                {
+                    frame.BackStack.Remove(navigatedFrom);
+                    frame.BackStack.Remove(lastThis);
+                }
+            }
         }
     }
 }
