@@ -52,11 +52,11 @@ namespace OurWedding.Views.ToDoList
             this.Frame.Navigate(typeof(Add));
         }
 
-        private void itemSwitch_Toggled(object sender, RoutedEventArgs e)
+        private void itemCheckBox_Toggled(object sender, RoutedEventArgs e)
         {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            ToDoItem item = toggleSwitch.DataContext as ToDoItem;
-            MoveTask(item, toggleSwitch.IsOn);
+            CheckBox checkbox = sender as CheckBox;
+            ToDoItem item = checkbox.DataContext as ToDoItem;
+            MoveTask(item, checkbox.IsChecked.Value);
         }
 
         private void MoveTask(ToDoItem item, bool isOn)
@@ -67,7 +67,6 @@ namespace OurWedding.Views.ToDoList
                 refresh = notDoneItems.Remove(item);
                 if (refresh)
                 {
-                    item.Done = isOn;
                     doneItems.Add(item);
                 }
             }
@@ -76,7 +75,6 @@ namespace OurWedding.Views.ToDoList
                 refresh = doneItems.Remove(item);
                 if (refresh)
                 {
-                    item.Done = isOn;
                     notDoneItems.Add(item);
                 }
             }

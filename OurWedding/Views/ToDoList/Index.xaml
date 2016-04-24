@@ -21,7 +21,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <ToggleSwitch Name="doItemSwitch" IsOn="{Binding Done}" Toggled="itemSwitch_Toggled" OnContent="" OffContent="" />
+                                <CheckBox Name="doItemCheckBox" IsChecked="{Binding Done, Mode=TwoWay}" Checked="itemCheckBox_Toggled"/>
                                 <TextBlock Text="{Binding Task}" FontWeight="Black"/>
                             </StackPanel>
                         </DataTemplate>
@@ -33,7 +33,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <ToggleSwitch Name="undoItemSwitch" IsOn="{Binding Done}" Toggled="itemSwitch_Toggled" OnContent="" OffContent="" />
+                                <CheckBox Name="doItemCheckBox" IsChecked="{Binding Done, Mode=TwoWay}" Unchecked="itemCheckBox_Toggled"/>
                                 <TextBlock Text="{Binding Task}" FontWeight="Black"/>
                             </StackPanel>
                         </DataTemplate>
