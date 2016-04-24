@@ -100,9 +100,28 @@ namespace OurWedding.Views.ToDoList
                     frame.BackStack.Remove(navigatedFrom);
                     frame.BackStack.Remove(lastThis);
                 }
-
             }
+        }
 
+        private void deleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            ToDoItem item = (sender as MenuFlyoutItem).DataContext as ToDoItem;
+            bool removed = notDoneItems.Remove(item);
+            if (!removed) removed = doneItems.Remove(item);
+            if (removed)
+            {
+                using (var db = DbConnection.GetConnection)
+                {
+                    db.Delete(item);
+                }
+            }
+        }
+
+        private void StackPanel_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            StackPanel panel = sender as StackPanel;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(panel);
+            flyoutBase.ShowAt(panel);
         }
     }
 }

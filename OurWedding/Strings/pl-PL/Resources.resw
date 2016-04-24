@@ -132,6 +132,9 @@
   <data name="comment.Text" xml:space="preserve">
     <value>Komentarz:</value>
   </data>
+  <data name="delete.Text" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
   <data name="doneItemsPivotItem.Header" xml:space="preserve">
     <value>Zrobione</value>
   </data>

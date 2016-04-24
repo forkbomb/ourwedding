@@ -18,9 +18,19 @@
         <Pivot x:Name="rootPivot" x:Uid="toDoItemsPivot">
             <PivotItem x:Uid="notDoneItemsPivotItem">
                 <ListView x:Name="notDoneItemsListView">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Holding="StackPanel_Holding">
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem x:Uid="delete" Click="deleteItem_Click"/>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
                                 <CheckBox Name="doItemCheckBox" IsChecked="{Binding Done, Mode=TwoWay}" Checked="itemCheckBox_Toggled"/>
                                 <TextBlock Text="{Binding Task}" FontWeight="Black"/>
                             </StackPanel>
@@ -30,9 +40,19 @@
             </PivotItem>
             <PivotItem x:Uid="doneItemsPivotItem">
                 <ListView x:Name="doneItemsListView">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Holding="StackPanel_Holding">
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem x:Uid="delete" Click="deleteItem_Click"/>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
                                 <CheckBox Name="doItemCheckBox" IsChecked="{Binding Done, Mode=TwoWay}" Unchecked="itemCheckBox_Toggled"/>
                                 <TextBlock Text="{Binding Task}" FontWeight="Black"/>
                             </StackPanel>
