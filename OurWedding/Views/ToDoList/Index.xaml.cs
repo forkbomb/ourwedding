@@ -1,6 +1,7 @@
 ﻿using OurWedding.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,6 +24,10 @@ namespace OurWedding.Views.ToDoList
     /// </summary>
     public sealed partial class Index : Page
     {
+        List<ToDoItem> toDoItems = new List<ToDoItem>();
+        ObservableCollection<ToDoItem> doneItems;
+        ObservableCollection<ToDoItem> notDoneItems;
+
         public Index()
         {
             this.InitializeComponent();
@@ -30,13 +35,16 @@ namespace OurWedding.Views.ToDoList
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            prepareBackStack();
+            PrepareBackStack();
             using (var db = DbConnection.GetConnection)
             {
                 db.CreateTable<ToDoItem>();
-                List<ToDoItem> toDoItems = (from i in db.Table<ToDoItem>() select i).ToList();
-                toDoListView.ItemsSource = toDoItems;
+                toDoItems = (from i in db.Table<ToDoItem>() select i).ToList();
             }
+            doneItems = new ObservableCollection<ToDoItem>(toDoItems.Where(x => x.Done));
+            notDoneItems = new ObservableCollection<ToDoItem>(toDoItems.Where(x => !x.Done));
+            doneItemsListView.ItemsSource = doneItems;
+            notDoneItemsListView.ItemsSource = notDoneItems;
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
@@ -44,18 +52,44 @@ namespace OurWedding.Views.ToDoList
             this.Frame.Navigate(typeof(Add));
         }
 
-        private void doItemSwitch_Toggled(object sender, RoutedEventArgs e)
+        private void itemSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             ToDoItem item = toggleSwitch.DataContext as ToDoItem;
-            item.Done = toggleSwitch.IsOn;
-            using (var db = DbConnection.GetConnection)
+            MoveTask(item, toggleSwitch.IsOn);
+        }
+
+        private void MoveTask(ToDoItem item, bool isOn)
+        {
+            bool refresh = false;
+            if (isOn)
             {
-                db.Update(item);
+                refresh = notDoneItems.Remove(item);
+                if (refresh)
+                {
+                    item.Done = isOn;
+                    doneItems.Add(item);
+                }
+            }
+            else
+            {
+                refresh = doneItems.Remove(item);
+                if (refresh)
+                {
+                    item.Done = isOn;
+                    notDoneItems.Add(item);
+                }
+            }
+            if (refresh)
+            {
+                using (var db = DbConnection.GetConnection)
+                {
+                    db.Update(item);
+                }
             }
         }
 
-        private void prepareBackStack()
+        private void PrepareBackStack()
         {
             Frame frame = this.Frame;
             int stackSize = frame.BackStackDepth;

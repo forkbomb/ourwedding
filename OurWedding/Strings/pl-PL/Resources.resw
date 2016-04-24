@@ -132,17 +132,26 @@
   <data name="comment.Text" xml:space="preserve">
     <value>Komentarz:</value>
   </data>
+  <data name="doneItemsPivotItem.Header" xml:space="preserve">
+    <value>Zrobione</value>
+  </data>
   <data name="guestName.Text" xml:space="preserve">
     <value>Nazwa:</value>
   </data>
   <data name="guestsListButton.Text" xml:space="preserve">
     <value>Lista gości</value>
   </data>
+  <data name="notDoneItemsPivotItem.Header" xml:space="preserve">
+    <value>Do zrobienia</value>
+  </data>
   <data name="save.Label" xml:space="preserve">
     <value>Zapisz</value>
   </data>
   <data name="taskName.Text" xml:space="preserve">
     <value>Nazwa zadania</value>
+  </data>
+  <data name="toDoItemsPivot.Title" xml:space="preserve">
+    <value>Zadania</value>
   </data>
   <data name="toDoListButton.Text" xml:space="preserve">
     <value>Do zrobienia</value>

@@ -15,15 +15,31 @@
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="toDoListView">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Task}" FontWeight="Black"/>
-                        <ToggleSwitch Name="doItemSwitch" IsOn="{Binding Done}" Toggled="doItemSwitch_Toggled" OnContent="" OffContent="" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Pivot x:Name="rootPivot" x:Uid="toDoItemsPivot">
+            <PivotItem x:Uid="notDoneItemsPivotItem">
+                <ListView x:Name="notDoneItemsListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleSwitch Name="doItemSwitch" IsOn="{Binding Done}" Toggled="itemSwitch_Toggled" OnContent="" OffContent="" />
+                                <TextBlock Text="{Binding Task}" FontWeight="Black"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem x:Uid="doneItemsPivotItem">
+                <ListView x:Name="doneItemsListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleSwitch Name="undoItemSwitch" IsOn="{Binding Done}" Toggled="itemSwitch_Toggled" OnContent="" OffContent="" />
+                                <TextBlock Text="{Binding Task}" FontWeight="Black"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>

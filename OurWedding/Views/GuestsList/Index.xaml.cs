@@ -29,7 +29,7 @@ namespace OurWedding.Views.GuestsList
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            prepareBackStack();
+            PrepareBackStack();
             using (var db = DbConnection.GetConnection)
             {
                 db.CreateTable<Guest>();
@@ -61,7 +61,7 @@ namespace OurWedding.Views.GuestsList
             int id = guest.Id;
             this.Frame.Navigate(typeof(Edit), id);
         }
-        private void prepareBackStack()
+        private void PrepareBackStack()
         {
             Frame frame = this.Frame;
             int stackSize = frame.BackStackDepth;
