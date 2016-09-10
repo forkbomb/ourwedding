@@ -23,6 +23,7 @@ namespace OurWedding.Models
         public string Task { get; set; }
         public Priority Priority { get; set; } = Priority.Normal;
         public bool Done { get; set; } = false;
+        public DateTime CreatedAt { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

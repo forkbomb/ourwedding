@@ -33,6 +33,7 @@ namespace OurWedding.Views.ToDoList
             string name = nameTextBox.Text;
             ToDoItem item = new ToDoItem();
             item.Task = name;
+            item.CreatedAt = DateTime.Now;
             using (var db = DbConnection.GetConnection)
             {
                 db.Insert(item);

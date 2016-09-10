@@ -33,7 +33,7 @@ namespace OurWedding.Views.GuestsList
             using (var db = DbConnection.GetConnection)
             {
                 db.CreateTable<Guest>();
-                List<Guest> guests = (from g in db.Table<Guest>() select g).ToList();
+                List<Guest> guests = (from g in db.Table<Guest>().OrderByDescending(g => g.CreatedAt) select g).ToList();
                 guestsListView.ItemsSource = guests;
             }
         }

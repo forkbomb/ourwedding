@@ -39,6 +39,7 @@ namespace OurWedding.Views.GuestsList
             guest.Adults = adults;
             guest.Children = children;
             guest.Comment = comment;
+            guest.CreatedAt = DateTime.Now;
             using (var db = DbConnection.GetConnection)
             {
                 db.Insert(guest);

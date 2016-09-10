@@ -16,5 +16,6 @@ namespace OurWedding.Models
         public int Children { get; set; }
         public bool Confirmed { get; set; }
         public string Comment { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
