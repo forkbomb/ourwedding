@@ -18,7 +18,12 @@
         <ListView x:Name="guestsListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Tapped="StackPanel_Tapped">
+                    <StackPanel Orientation="Horizontal" Tapped="StackPanel_Tapped" Holding="StackPanel_Holding">
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:Uid="delete" Click="deleteItem_Click"/>
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
                         <TextBlock Text="{Binding Name}" FontWeight="Black"/>
                         <TextBlock x:Uid="adults"/>
                         <TextBlock Text="{Binding Adults}" FontWeight="Black"/>

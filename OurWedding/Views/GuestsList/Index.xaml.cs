@@ -1,6 +1,7 @@
 ﻿using OurWedding.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,6 +24,8 @@ namespace OurWedding.Views.GuestsList
     /// </summary>
     public sealed partial class Index : Page
     {
+        ObservableCollection<Guest> guests = new ObservableCollection<Guest>();
+
         public Index()
         {
             this.InitializeComponent();
@@ -33,7 +36,7 @@ namespace OurWedding.Views.GuestsList
             using (var db = DbConnection.GetConnection)
             {
                 db.CreateTable<Guest>();
-                List<Guest> guests = (from g in db.Table<Guest>().OrderByDescending(g => g.CreatedAt) select g).ToList();
+                guests = new ObservableCollection<Guest>(from g in db.Table<Guest>().OrderByDescending(g => g.CreatedAt) select g);
                 guestsListView.ItemsSource = guests;
             }
         }
@@ -61,6 +64,27 @@ namespace OurWedding.Views.GuestsList
             int id = guest.Id;
             this.Frame.Navigate(typeof(Edit), id);
         }
+
+        private void StackPanel_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            StackPanel panel = sender as StackPanel;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(panel);
+            flyoutBase.ShowAt(panel);
+        }
+
+        private void deleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            Guest guest = (sender as MenuFlyoutItem).DataContext as Guest;
+            bool removed = guests.Remove(guest);
+            if (removed)
+            {
+                using (var db = DbConnection.GetConnection)
+                {
+                    db.Delete(guest);
+                }
+            }
+        }
+
         private void PrepareBackStack()
         {
             Frame frame = this.Frame;
