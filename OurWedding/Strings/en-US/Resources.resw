@@ -126,11 +126,20 @@
   <data name="adults.Text" xml:space="preserve">
     <value>Adults:</value>
   </data>
+  <data name="budget.Text" xml:space="preserve">
+    <value>Budget</value>
+  </data>
   <data name="children.Text" xml:space="preserve">
     <value>Children:</value>
   </data>
   <data name="comment.Text" xml:space="preserve">
     <value>Comment:</value>
+  </data>
+  <data name="confirmedChildren.Text" xml:space="preserve">
+    <value>Children</value>
+  </data>
+  <data name="confirmedGuests.Text" xml:space="preserve">
+    <value>Confirmed</value>
   </data>
   <data name="delete.Text" xml:space="preserve">
     <value>Delete</value>
@@ -144,8 +153,17 @@
   <data name="guestsListButton.Text" xml:space="preserve">
     <value>Guests list</value>
   </data>
+  <data name="invitedGuests.Text" xml:space="preserve">
+    <value>Invited</value>
+  </data>
+  <data name="notConfirmedGuests.Text" xml:space="preserve">
+    <value>Not confirmed</value>
+  </data>
   <data name="notDoneItemsPivotItem.Header" xml:space="preserve">
     <value>Not done</value>
+  </data>
+  <data name="remainingToDoItems.Text" xml:space="preserve">
+    <value>Remaining tasks</value>
   </data>
   <data name="save.Label" xml:space="preserve">
     <value>Save</value>

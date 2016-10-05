@@ -1,4 +1,5 @@
-﻿using OurWedding.Views;
+﻿using OurWedding.Models;
+using OurWedding.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,18 @@ namespace OurWedding
         public MainPage()
         {
             this.InitializeComponent();
+            using (var db = DbConnection.GetConnection)
+            {
+                db.CreateTable<Guest>();
+                int confirmedGuestsCount = db.Table<Guest>().Where(x => x.Confirmed == true).Sum(x => x.Adults + x.Children);
+                int allGuestsCount = db.Table<Guest>().Sum(x => x.Adults + x.Children);
+                this.confirmedGuests.Text = confirmedGuestsCount.ToString();
+                this.invitedGuests.Text = allGuestsCount.ToString();
+
+                db.CreateTable<ToDoItem>();
+                int toDoItemsCount = db.Table<ToDoItem>().Where(x => x.Done == false).Count();
+                this.remainingToDoItems.Text = toDoItemsCount.ToString();
+            }
         }
         
         private void GuestList_Tapped(object sender, TappedRoutedEventArgs e)

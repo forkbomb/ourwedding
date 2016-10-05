@@ -8,19 +8,62 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <StackPanel Tapped="GuestList_Tapped">
-                <TextBlock x:Uid="guestsListButton"/>
-            </StackPanel>
-            <StackPanel Tapped="ToDoList_Tapped">
-                <TextBlock x:Uid="toDoListButton"/>
-            </StackPanel>
-        </ListView>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Padding="10" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0">
+                    <TextBlock x:Name="invitedGuests" FontSize="70" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}"></TextBlock>
+                    <TextBlock x:Uid="invitedGuests"/>
+                </StackPanel>
 
+                <StackPanel Padding="10" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0">
+                    <TextBlock x:Name="confirmedGuests" FontSize="70" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}"></TextBlock>
+                    <TextBlock x:Uid="confirmedGuests"/>
+                </StackPanel>
+
+                <StackPanel Padding="10" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1">
+                    <TextBlock x:Name="remainingToDoItems" FontSize="50" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}"></TextBlock>
+                    <TextBlock x:Uid="remainingToDoItems"/>
+                </StackPanel>
+
+                <StackPanel Padding="10" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1">
+                    <TextBlock x:Name="budget" FontSize="50" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}" >100 000 zł</TextBlock>
+                    <TextBlock x:Uid="budget" />
+                </StackPanel>                
+            </Grid>
+            <GridView>
+                <StackPanel Tapped="GuestList_Tapped" Width="100">
+                    <Image Source="Assets/100.jpg"/>
+                    <TextBlock x:Uid="guestsListButton" Padding="0,10"/>
+                </StackPanel>
+                <StackPanel Tapped="ToDoList_Tapped" Width="100">
+                    <Image Source="Assets/100.jpg"/>
+                    <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
+                </StackPanel>
+                <StackPanel Tapped="ToDoList_Tapped" Width="100">
+                    <Image Source="Assets/100.jpg"/>
+                    <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
+                </StackPanel>
+                <StackPanel Tapped="ToDoList_Tapped" Width="100">
+                    <Image Source="Assets/100.jpg"/>
+                    <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
+                </StackPanel>
+                <StackPanel Tapped="ToDoList_Tapped" Width="100">
+                    <Image Source="Assets/100.jpg"/>
+                    <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
+                </StackPanel>
+                <StackPanel Tapped="ToDoList_Tapped" Width="100">
+                    <Image Source="Assets/100.jpg"/>
+                    <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
+                </StackPanel>
+            </GridView>
+        </StackPanel>
     </Grid>
 </Page>

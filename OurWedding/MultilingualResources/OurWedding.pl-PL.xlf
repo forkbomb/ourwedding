@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="pl-PL" original="OURWEDDING/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1795.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="OURWEDDING/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="addGuest.Label" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated">Dodaj</target>
+        </trans-unit>
+        <trans-unit id="addTask.Label" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated" state-qualifier="tm-suggestion">Dodaj</target>
+        </trans-unit>
+        <trans-unit id="adults.Text" translate="yes" xml:space="preserve">
+          <source>Adults:</source>
+          <target state="translated">Dorośli:</target>
+        </trans-unit>
+        <trans-unit id="budget.Text" translate="yes" xml:space="preserve">
+          <source>Budget</source>
+          <target state="translated">Budżet</target>
+        </trans-unit>
+        <trans-unit id="children.Text" translate="yes" xml:space="preserve">
+          <source>Children:</source>
+          <target state="translated">Dzieci:</target>
+        </trans-unit>
+        <trans-unit id="comment.Text" translate="yes" xml:space="preserve">
+          <source>Comment:</source>
+          <target state="translated">Komentarz:</target>
+        </trans-unit>
+        <trans-unit id="confirmedGuests.Text" translate="yes" xml:space="preserve">
+          <source>Confirmed</source>
+          <target state="translated">Potwierdzone</target>
+        </trans-unit>
+        <trans-unit id="delete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">Usuń</target>
+        </trans-unit>
+        <trans-unit id="doneItemsPivotItem.Header" translate="yes" xml:space="preserve">
+          <source>Done</source>
+          <target state="translated">Gotowe</target>
+        </trans-unit>
+        <trans-unit id="guestName.Text" translate="yes" xml:space="preserve">
+          <source>Name:</source>
+          <target state="translated">Nazwa:</target>
+        </trans-unit>
+        <trans-unit id="guestsListButton.Text" translate="yes" xml:space="preserve">
+          <source>Guests list</source>
+          <target state="translated">Lista Gości</target>
+        </trans-unit>
+        <trans-unit id="invitedGuests.Text" translate="yes" xml:space="preserve">
+          <source>Invited</source>
+          <target state="translated">Zaproszeni</target>
+        </trans-unit>
+        <trans-unit id="notDoneItemsPivotItem.Header" translate="yes" xml:space="preserve">
+          <source>Not done</source>
+          <target state="translated">Nie zrobione</target>
+        </trans-unit>
+        <trans-unit id="save.Label" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated">Zapisz</target>
+        </trans-unit>
+        <trans-unit id="taskName.Text" translate="yes" xml:space="preserve">
+          <source>Task name</source>
+          <target state="translated">Nazwa zadania</target>
+        </trans-unit>
+        <trans-unit id="toDoItemsPivot.Title" translate="yes" xml:space="preserve">
+          <source>To-Do</source>
+          <target state="translated">Do zrobienia</target>
+        </trans-unit>
+        <trans-unit id="toDoListButton.Text" translate="yes" xml:space="preserve">
+          <source>To-Do</source>
+          <target state="translated">Do zrobienia</target>
+        </trans-unit>
+        <trans-unit id="remainingToDoItems.Text" translate="yes" xml:space="preserve">
+          <source>Remaining tasks</source>
+          <target state="translated">Pozostało zadań</target>
+        </trans-unit>
+        <trans-unit id="confirmedChildren.Text" translate="yes" xml:space="preserve">
+          <source>Children</source>
+          <target state="new">Children</target>
+        </trans-unit>
+        <trans-unit id="notConfirmedGuests.Text" translate="yes" xml:space="preserve">
+          <source>Not confirmed</source>
+          <target state="new">Not confirmed</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
