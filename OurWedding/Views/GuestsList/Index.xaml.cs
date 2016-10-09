@@ -38,6 +38,16 @@ namespace OurWedding.Views.GuestsList
                 db.CreateTable<Guest>();
                 guests = new ObservableCollection<Guest>(from g in db.Table<Guest>().OrderByDescending(g => g.CreatedAt) select g);
                 guestsListView.ItemsSource = guests;
+            }
+            this.CalculateGuests();
+            
+        }
+
+        private void CalculateGuests()
+        {
+            using (var db = DbConnection.GetConnection)
+            {
+                db.CreateTable<Guest>();
 
                 int confirmedGuestsCount = db.Table<Guest>().Where(x => x.Confirmed == true).Sum(x => x.Adults + x.Children);
                 int notConfirmedGuestsCount = db.Table<Guest>().Where(x => x.Confirmed == false).Sum(x => x.Adults + x.Children);
@@ -63,6 +73,7 @@ namespace OurWedding.Views.GuestsList
             {
                 db.Update(guest);
             }
+            this.CalculateGuests();
         }
 
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
