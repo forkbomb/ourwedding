@@ -16,7 +16,7 @@ namespace OurWedding.Models
         Urgent
     };
 
-    class ToDoItem : INotifyPropertyChanged
+    class ToDoItem
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -24,7 +24,5 @@ namespace OurWedding.Models
         public Priority Priority { get; set; } = Priority.Normal;
         public bool Done { get; set; } = false;
         public DateTime CreatedAt { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
