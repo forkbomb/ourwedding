@@ -51,6 +51,14 @@ namespace OurWedding
 #endif
 
 
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            if (localSettings.Values["dataLoaded"] == null)
+            {
+                DbConnection.SeedDatabase();
+                localSettings.Values["dataLoaded"] = true;
+            }
+
+
             // http://www.wintellect.com/devcenter/jprosise/handling-the-back-button-in-windows-10-uwp-apps
 
             Frame rootFrame = Window.Current.Content as Frame;

@@ -47,9 +47,9 @@
                     <Image Source="Assets/100.jpg"/>
                     <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
                 </StackPanel>
-                <StackPanel Tapped="ToDoList_Tapped" Width="100">
+                <StackPanel Tapped="CustomLists_Tapped" Width="100">
                     <Image Source="Assets/100.jpg"/>
-                    <TextBlock x:Uid="toDoListButton" Padding="0,10"/>
+                    <TextBlock x:Uid="customListsButton" Padding="0,10"/>
                 </StackPanel>
                 <StackPanel Tapped="ToDoList_Tapped" Width="100">
                     <Image Source="Assets/100.jpg"/>

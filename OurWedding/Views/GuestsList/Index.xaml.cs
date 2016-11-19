@@ -35,7 +35,6 @@ namespace OurWedding.Views.GuestsList
             PrepareBackStack();
             using (var db = DbConnection.GetConnection)
             {
-                db.CreateTable<Guest>();
                 guests = new ObservableCollection<Guest>(from g in db.Table<Guest>().OrderByDescending(g => g.CreatedAt) select g);
                 guestsListView.ItemsSource = guests;
             }
@@ -47,8 +46,6 @@ namespace OurWedding.Views.GuestsList
         {
             using (var db = DbConnection.GetConnection)
             {
-                db.CreateTable<Guest>();
-
                 int confirmedGuestsCount = db.Table<Guest>().Where(x => x.Confirmed == true).Sum(x => x.Adults + x.Children);
                 int notConfirmedGuestsCount = db.Table<Guest>().Where(x => x.Confirmed == false).Sum(x => x.Adults + x.Children);
                 int childrenCount = db.Table<Guest>().Where(x => x.Confirmed == true).Sum(x => x.Children);

@@ -38,7 +38,6 @@ namespace OurWedding.Views.ToDoList
             PrepareBackStack();
             using (var db = DbConnection.GetConnection)
             {
-                db.CreateTable<ToDoItem>();
                 toDoItems = (from i in db.Table<ToDoItem>().OrderByDescending(i =>i.CreatedAt) select i).ToList();
             }
             doneItems = new ObservableCollection<ToDoItem>(toDoItems.Where(x => x.Done));

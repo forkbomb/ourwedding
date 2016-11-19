@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OurWedding.Models
 {
-    class CustomList
+    public class CustomList
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -17,7 +17,6 @@ namespace OurWedding.Models
         {
             using (var db = DbConnection.GetConnection)
             {
-                db.CreateTable<CustomListItem>();
                 return db.Table<CustomListItem>().Where(x => x.ParentId == this.Id).ToList<CustomListItem>();
             }
         }

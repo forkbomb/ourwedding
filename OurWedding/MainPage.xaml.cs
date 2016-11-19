@@ -29,13 +29,11 @@ namespace OurWedding
             this.InitializeComponent();
             using (var db = DbConnection.GetConnection)
             {
-                db.CreateTable<Guest>();
                 int confirmedGuestsCount = db.Table<Guest>().Where(x => x.Confirmed == true).Sum(x => x.Adults + x.Children);
                 int allGuestsCount = db.Table<Guest>().Sum(x => x.Adults + x.Children);
                 this.confirmedGuests.Text = confirmedGuestsCount.ToString();
                 this.invitedGuests.Text = allGuestsCount.ToString();
 
-                db.CreateTable<ToDoItem>();
                 int toDoItemsCount = db.Table<ToDoItem>().Where(x => x.Done == false).Count();
                 this.remainingToDoItems.Text = toDoItemsCount.ToString();
             }
@@ -49,6 +47,11 @@ namespace OurWedding
         private void ToDoList_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Views.ToDoList.Index));
+        }
+
+        private void CustomLists_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.CustomList.Index));
         }
     }
 }
