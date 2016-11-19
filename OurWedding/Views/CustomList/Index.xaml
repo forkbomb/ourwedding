@@ -18,12 +18,12 @@
         <ListView Name="customListsListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<FlyoutBase.AttachedFlyout>
+                    <StackPanel Orientation="Horizontal" Holding="StackPanel_Holding">
+                        <FlyoutBase.AttachedFlyout>
                             <MenuFlyout>
                                 <MenuFlyoutItem x:Uid="delete" Click="deleteItem_Click"/>
                             </MenuFlyout>
-                        </FlyoutBase.AttachedFlyout>-->
+                        </FlyoutBase.AttachedFlyout>
                         <!--<CheckBox Name="doItemCheckBox" IsChecked="{Binding Done, Mode=TwoWay}" Checked="itemCheckBox_Toggled"/>-->
                         <TextBlock Text="{Binding Name}" FontWeight="Black"/>
                     </StackPanel>

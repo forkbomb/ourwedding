@@ -41,6 +41,26 @@ namespace OurWedding.Views.CustomList
             customListsListView.ItemsSource = customLists;
         }
 
+        private void StackPanel_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            StackPanel panel = sender as StackPanel;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(panel);
+            flyoutBase.ShowAt(panel);
+        }
+
+        private void deleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            Models.CustomList customList = (sender as MenuFlyoutItem).DataContext as Models.CustomList;
+            bool removed = customLists.Remove(customList);
+            if (removed)
+            {
+                using (var db = DbConnection.GetConnection)
+                {
+                    db.Delete(customList);
+                }
+            }
+        }
+
         private void PrepareBackStack()
         {
             Frame frame = this.Frame;
